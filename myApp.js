@@ -2,7 +2,9 @@ require('dotenv').config();
 
 /** 1) Install & Set up mongoose */
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true, useUnifiedTopology: true 
+});
 
 /** 2) Create a 'Person' Model */
 var personSchema = new mongoose.Schema({
@@ -30,8 +32,9 @@ var arrayOfPeople = [
 ];
 
 var createManyPeople = function(arrayOfPeople, done) {
-	Person.create(arrayOfPeople, function(err, people){
-		if(err) return console.log(err);
+	/**Person.create(arrayOfPeople, function(err, people){ */
+  Person.create(arrayOfPeople, (err, people) => {
+   		if(err) return console.log(err);
 		done(null, people);
 	});
 };
