@@ -42,8 +42,13 @@ var createManyPeople = function(arrayOfPeople, done) {
   done(null /*, data*/ /*);
 };
 */
-const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+
+/** 5) Use Model.find() to Search your database. */
+var findPeopleByName = (personName, done) => {
+  Person.find{personName}, function(err, personFound){
+    if(err) return console.timeLog(err);
+    done(null, personFound);
+  }
 };
 
 const findOneByFood = (food, done) => {
