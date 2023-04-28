@@ -58,9 +58,13 @@ var findPeopleByName = function(personName, done) {
   });
 };
 
-const findOneByFood = (food, done) => {
-  done(null /*, data*/);
-};
+/** 6) Use `Model.findOne() to Return Single Matching doc.. */
+var findOneByFood = function(food, done) {
+  Person.findOne({favoriteFoods: food}, function(err,data){
+    if(err) return console.log(err);
+    done(null, data);
+  });
+}; //does work.
 
 const findPersonById = (personId, done) => {
   done(null /*, data*/);
