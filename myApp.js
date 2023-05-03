@@ -66,8 +66,12 @@ var findOneByFood = function(food, done) {
   });
 }; //does work.
 
-const findPersonById = (personId, done) => {
-  done(null /*, data*/);
+/** 7)Use Model.findById() */
+var findPersonById = (personId, done){
+  Person.findById(personId, function(err, data){
+    if(err) return console.log(err);
+    done(null, data);
+  });
 };
 
 const findEditThenSave = (personId, done) => {
