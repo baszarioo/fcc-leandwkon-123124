@@ -74,12 +74,22 @@ var findPersonById = function(personId, done) {
   });
 };
 
-/** 8) */
+/** 8)Perform Classic Updates By running find,edit than save. */
 
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
-
-  done(null /*, data*/);
+  // .findById() 0 method to find a prsn, by _id with the personId as a search key.
+  Person.findById(personId, (err, person)=>{
+    if(err) return console.log(err);
+     //Array.push()...
+    person.favoriteFoods.push(foodToAdd);
+     // save()...
+    person.save((err, updatedPerson) =>{
+      if(err) return console.log(err);
+      done(null, updatedPerson)
+    })
+  })
+  //done(null /*, data*/);
 };
 
 const findAndUpdate = (personName, done) => {
