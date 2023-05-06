@@ -104,12 +104,25 @@ const findEditThenSave = (personId, done) => {
   //done(null /*, data*/);  ==this one returns error.
   // updatedDoc not found! - to replace.
 //VERSION 2 -classic.
-var findAndUpdate = function(personName, done){
+/** var findAndUpdate = function(personName, done){
   Person.findOneAndUpdate({name: personName}, {age:20}, {new: true}, 
     function(error, foundPerson) {
       if(error) return console.log(error);
       done(null, foundPerson);
     });
+};
+*/
+
+//VERSION 3 - most current solution.
+var findAndUpdate = (personName, done) => {
+  let query = {name: personName};
+  let update = {age: 20};
+  let option = {new: true};
+
+  Person.findOneAndUpdate(query, update, option, (error, individual) => {
+    if(error) return console.log(error);
+    done(null, individual);
+  });
 };
 
 
