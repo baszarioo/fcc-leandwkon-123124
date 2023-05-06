@@ -99,7 +99,7 @@ const findAndUpdate = (personName, done) => {
     if(err) return console.log(err);
     done(null, updatedDoc);
   })
-  //done(null /*, data*/);
+  //done(null /*, data*/);  //this one returns error.
 };
 
 const removeById = (personId, done) => {
