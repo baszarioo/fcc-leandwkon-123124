@@ -93,15 +93,25 @@ const findEditThenSave = (personId, done) => {
 };
 
 /** 9) Perform new updates on a Document using model.findOneAndUpdate() */
-const findAndUpdate = (personName, done) => {
-  const ageToSet = 20;
-  Person.findOneAndUpdate({name: personName}, {age: ageToSet}, {new: true}, (err, updateDoc) => {
+//const findAndUpdate = (personName, done) => {
+  /**const ageToSet = 20;
+  Person.findOneAndUpdate({name: personName}, {age: ageToSet},
+     {new: true}, (err, updateDoc) => {
     if(err) return console.log(err);
     done(null, updatedDoc);
   })
+  */
   //done(null /*, data*/);  ==this one returns error.
   // updatedDoc not found! - to replace.
+//VERSION 2 -classic.
+var findAndUpdate = function(personName, done){
+  Person.findOneAndUpdate({name: personName}, {age:20}, {new: true}, 
+    function(error, foundPerson) {
+      if(error) return console.log(error);
+      done(null, foundPerson);
+    });
 };
+
 
 const removeById = (personId, done) => {
   done(null /*, data*/);
