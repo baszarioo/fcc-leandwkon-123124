@@ -128,7 +128,8 @@ var findAndUpdate = (personName, done) => {
 /** 10) Delete one doc using model.findByIdAndRemove. */
 const removeById = (personId, done) => {
   done(null /*, data*/);
-};
+};  //[error: missing callback argument].
+
 
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
