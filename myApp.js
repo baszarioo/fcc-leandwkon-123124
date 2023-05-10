@@ -139,7 +139,14 @@ const removeById = (personId, done) => {
     }
   );
 };    //let him cook. - it works.
-
+/** 10) .ver II 
+ * var removeById = (personId, done) => {
+ *  Person.findByIdAndRemove(personId, (error, removedPerson) => {
+ *    if(error) return console.log(error);
+ *    done(null, removedPerson);
+ *  });
+ * };
+*/
 
 
 const removeManyPeople = (done) => {
