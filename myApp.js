@@ -157,6 +157,7 @@ const removeManyPeople = (done) => {
       done(null, response);
   })
 };  
+//11). Version II
 
 
 const queryChain = (done) => {
