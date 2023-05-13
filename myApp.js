@@ -158,7 +158,15 @@ const removeManyPeople = (done) => {
   })
 };  
 //11). Version II
-
+/** 
+var removeManyPeople = function(done){
+  var nameToRemove = {name: "Mary"};
+  Person.remove(nameToRemove, function(error, removalInfo) {
+    if(error) return console.log(error);
+    done(null, removalInfo);
+  });
+};
+*/
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
