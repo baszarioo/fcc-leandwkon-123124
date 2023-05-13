@@ -178,6 +178,17 @@ const queryChain = function(done) {
     });
 };
 
+/** 12. Version II - X]  
+var queryChain=(done) => {
+    Person.find({favoriteFoods: "burrito"})
+      .sort({name: 'asc' })
+      .limit(2)
+      .select({age: 0})
+      .exec((error, searchResults) => {
+        done(error, searchResults);
+      });
+};
+*/
 
 /** **Well Done !!**
 /* You completed these challenges, let's go celebrate !
