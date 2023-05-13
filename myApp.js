@@ -168,11 +168,13 @@ var removeManyPeople = function(done){
 };
 */
 
+/**12) exercise = do a queryChain. */
 const queryChain = (done) => {
   const foodToSearch = "burrito";
 
   done(null /*, data*/);
 };
+
 
 /** **Well Done !!**
 /* You completed these challenges, let's go celebrate !
